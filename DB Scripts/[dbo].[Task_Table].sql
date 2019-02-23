@@ -1,11 +1,21 @@
-USE [ProjectManager]
+USE [FSDDB]
 GO
 
-/****** Object:  Table [dbo].[Task_Table]    Script Date: 03-10-2018 11:07:44 ******/
+ALTER TABLE [dbo].[Task_Table] DROP CONSTRAINT [FK_TaskParent]
+GO
+
+/****** Object:  Table [dbo].[Task_Table]    Script Date: 2/23/2019 12:23:11 AM ******/
+DROP TABLE [dbo].[Task_Table]
+GO
+
+/****** Object:  Table [dbo].[Task_Table]    Script Date: 2/23/2019 12:23:11 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[Task_Table](
@@ -22,6 +32,10 @@ CREATE TABLE [dbo].[Task_Table](
 	[Task_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
 GO
 
 ALTER TABLE [dbo].[Task_Table]  WITH CHECK ADD  CONSTRAINT [FK_TaskParent] FOREIGN KEY([Parent_ID])
